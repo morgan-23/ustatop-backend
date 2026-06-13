@@ -7,7 +7,7 @@ const pool = new Pool({
 });
 
 const createTables = async () => {
-  await pool.query('
+  await pool.query(
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
       name VARCHAR(100) NOT NULL,
@@ -16,8 +16,7 @@ const createTables = async () => {
       role VARCHAR(10) NOT NULL,
       fcm_token TEXT,
       created_at TIMESTAMP DEFAULT NOW()
-    ');
-
+    );
     CREATE TABLE IF NOT EXISTS masters (
       id SERIAL PRIMARY KEY,
       user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -30,7 +29,6 @@ const createTables = async () => {
       bio TEXT,
       created_at TIMESTAMP DEFAULT NOW()
     );
-
     CREATE TABLE IF NOT EXISTS orders (
       id SERIAL PRIMARY KEY,
       client_id INTEGER REFERENCES users(id),
@@ -45,7 +43,6 @@ const createTables = async () => {
       payment_method VARCHAR(20),
       created_at TIMESTAMP DEFAULT NOW()
     );
-
     CREATE TABLE IF NOT EXISTS transactions (
       id SERIAL PRIMARY KEY,
       payme_id VARCHAR(100) UNIQUE,
@@ -59,7 +56,6 @@ const createTables = async () => {
       reason INTEGER,
       created_at TIMESTAMP DEFAULT NOW()
     );
-
     CREATE TABLE IF NOT EXISTS otp_codes (
       phone VARCHAR(20) PRIMARY KEY,
       code VARCHAR(6) NOT NULL,
