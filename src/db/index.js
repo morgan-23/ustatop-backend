@@ -7,7 +7,7 @@ const pool = new Pool({
 });
 
 const createTables = async () => {
-  await pool.query(
+  await pool.query('
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
       name VARCHAR(100) NOT NULL,
@@ -16,7 +16,7 @@ const createTables = async () => {
       role VARCHAR(10) NOT NULL,
       fcm_token TEXT,
       created_at TIMESTAMP DEFAULT NOW()
-    );
+    ');
 
     CREATE TABLE IF NOT EXISTS masters (
       id SERIAL PRIMARY KEY,
