@@ -35,4 +35,4 @@ const createTables = async () => {
     "category VARCHAR(50)," +
     "address TEXT NOT NULL," +
     "description TEXT," +
-    "s
+    "s"
