@@ -25,6 +25,6 @@ app.use("/api/payment", paymentRoutes);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, async () => {
-  console.log(Server ishga tushdi: ${PORT});
+  console.log('Server ishga tushdi: ${PORT}');
   await createTables();
 });
